@@ -46,11 +46,12 @@ function exportDrink() {
     });
     document.getElementById("drinks").innerHTML = `<option selected disabled value="none">Chọn món</option> + ${details.join("")}`;
 }
+
 function order() {
     let quantity = Number(document.getElementById("quantity").value);
     let orderedDrinkId = document.getElementById("drinks").value;
     let drinkSelected = listDrinks.find(function (drink) {
-        return drink.id == orderedDrinkId
+        return drink.id == orderedDrinkId;
     });
     if (drinkSelected == undefined || quantity <= 0)
         return alert("Vui lòng nhập đúng thông tin!");
@@ -76,26 +77,51 @@ function order() {
     })
     document.getElementById("amount").innerHTML = sumOrdered;
     document.getElementById("sumDrinks").innerHTML = total;
-    console.log(orderList);
 }
 function clearData() {
+    orderList = [];
     document.querySelectorAll("#drinks > option").forEach((option) => {
         option.selected = "";
     })
     document.querySelectorAll("#drinks > option")[0].selected = "selected";
     document.querySelector("#quantity").value = null;
     document.querySelector("#orderedDetails").innerHTML = "";
-    document.querySelector("#sumDrinks").innerHTML = "";
+    document.getElementById("sumDrinks").innerHTML = "";
     document.querySelector("#amount").innerHTML = "";
 }
 
-function deleteRow(orderedIndex) {
-    let indexDelete = orderList.findIndex(function () {
-        return orderList.id == orderedIndex;
+
+
+function deleteRow(orderedId) {
+    let indexDelete = orderList.findIndex(function (deleteDrink) {
+        return deleteDrink.id == orderedId;
     })
-
+    orderList.splice(indexDelete, 1);
+    let orderedDetailsElement = document.getElementById("orderedDetails");
+    orderedDetailsElement.innerHTML = ""
+    let sumOrdered = 0;
+    let total = 0;
+    orderList.map((orderedDrink) => {
+        let drinkSelected = listDrinks.find(function (drink) {
+            return drink.id == orderedDrink.id
+        });
+        let html = ` 
+        <tr>
+            <td class="money-td">${orderedDetailsElement.children.length + 1}</td>
+            <td class="money-td">${drinkSelected.drinkName}</td>
+            <td class="money-td">${orderedDrink.quantity}</td>
+            <td class="money-td">${orderedDrink.price}</td>
+            <td class="money-td">${orderedDrink.price * orderedDrink.quantity}</td>
+            <td><span class="time" onclick="deleteRow('${orderedDrink.id}')">&times;</span></td>
+        </tr>
+        `;
+        orderedDetailsElement.innerHTML += html;
+        sumOrdered += orderedDrink.price * orderedDrink.quantity;
+        total += orderedDrink.quantity;
+    })
+    document.getElementById("amount").innerHTML = sumOrdered;
+    document.getElementById("sumDrinks").innerHTML = total;
 }
-
 
 exportDrink();
 
