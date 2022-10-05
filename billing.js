@@ -90,8 +90,8 @@ function clearData() {
     document.querySelector("#amount").innerHTML = "";
 }
 function deleteRow(orderedId) {
-    let indexDelete = orderList.findIndex((element) =>
-        element.id == orderedId
+    let indexDelete = orderList.findIndex((deleteDrink) =>
+        deleteDrink.id == orderedId
     )
     orderList.splice(indexDelete, 1);
     let orderedDetailsElement = document.getElementById("orderedDetails");
