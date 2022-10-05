@@ -18,7 +18,7 @@ let listDrinks = [
     },
     {
         id: 3,
-        drinkName: "Cappucchino",
+        drinkName: "Cappuccino",
         price: 75000
     },
     {
@@ -66,7 +66,7 @@ function order() {
             <td class="money-td">${orderedDrink.quantity}</td>
             <td class="money-td">${orderedDrink.price}</td>
             <td class="money-td">${orderedDrink.price * quantity}</td>
-            <td><span class="time" onclick="deleteRow()">&times;</span></td>
+            <td><span class="time" onclick="deleteRow('${orderedDrink.id}')">&times;</span></td>
         </tr>
         `;
     orderedDetailsElement.innerHTML += html;
@@ -89,13 +89,10 @@ function clearData() {
     document.getElementById("sumDrinks").innerHTML = "";
     document.querySelector("#amount").innerHTML = "";
 }
-
-
-
 function deleteRow(orderedId) {
-    let indexDelete = orderList.findIndex(function (deleteDrink) {
-        return deleteDrink.id == orderedId;
-    })
+    let indexDelete = orderList.findIndex((element) =>
+        element.id == orderedId
+    )
     orderList.splice(indexDelete, 1);
     let orderedDetailsElement = document.getElementById("orderedDetails");
     orderedDetailsElement.innerHTML = ""
