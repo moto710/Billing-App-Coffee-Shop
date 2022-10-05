@@ -12,16 +12,16 @@
 <body>
     <div class="overall">
         <div class="left-size">
-            <div class="left-item">
+            <div class="center">
                 <h3>Tổng số bàn của quán:</h3>
             </div>
-            <div class="left-item">
+            <div class="center">
                 <hr>
             </div>
-            <div class="left-item">
+            <div class="center">
                 <table class="big-table">
                     <tr>
-                        <td id="tb0" style="background-color: bisque" class="table tbSelected" onclick="exportTbNumber(0)">Bàn 1</td>
+                        <td id="tb0" class="table tbSelected" onclick="exportTbNumber(0)">Bàn 1</td>
                         <td id="tb1" class="table tbSelected" onclick="exportTbNumber(1)">Bàn 2</td>
                         <td id="tb2" class="table tbSelected" onclick="exportTbNumber(2)">Bàn 3</td>
                         <td id="tb3" class="table tbSelected" onclick="exportTbNumber(3)">Bàn 4</td>
@@ -42,41 +42,42 @@
             </div>
         </div>
         <div class="right-size">
-            <div class="left-item"><h3>Bàn số: <span id="tbNumber"></span></h3></div>
-            <div class="left-item"><hr></div>
-            <div class="left-item">
-                <table>
+            <div class="center">
+                <h3>Bàn số: <span id="tbNumber"></span></h3>
+            </div>
+            <div class="center">
+                <hr>
+            </div>
+            <div class="center">
+                <table class="right-up">
                     <tr>
-                        <td>Tên món:</td>
+                        <td><label for="drinks">Tên món:</label></td>
                         <td>
-                            <select id="drinks">
+                            <select id="drinks" class="btn">
                             </select>
                         </td>
                     </tr>
                     <tr>
-                        <td>Số lượng:</td>
-                        <td><input type="number" id="quantity"></td>
+                        <td><label for="quantity">Số lượng:</label></td>
+                        <td><input type="number" id="quantity" class="btn"></td>
                     </tr>
                     <tr>
-                        <td colspan="2"><button onclick="order()">Choose</button></td>
+                        <td colspan="2"><button onclick="order()" class="btn">Đặt món</button></td>
                     </tr>
                 </table>
             </div>
             <div>
-                <table>
+                <table class="money-tb"">
                     <thead>
                         <tr>
-                            <th>STT</th>
-                            <th>Tên món</th>
-                            <th>Số lượng</th>
-                            <th>Đơn giá</th>
-                            <th>Thành tiền</th>
-                        </tr>
-                        <tbody id="IdOrderItem">
-
-                        </tbody>
+                            <th class=" money-th">STT</th>
+                    <th class="money-th">Tên món</th>
+                    <th class="money-th">Số lượng</th>
+                    <th class="money-th">Đơn giá</th>
+                    <th class="money-th">Thành tiền</th>
+                    </tr>
                     </thead>
-                    <tbody id="drinkingDetail">
+                    <tbody id="orderedDetails">
                     </tbody>
                     <tfoot>
                         <tr>
@@ -91,7 +92,7 @@
                         </tr>
                     </tfoot>
                 </table>
-                <button onclick="clearData()">Clear</button>
+                <button onclick="clearData()" class="btn">Clear</button>
             </div>
         </div>
         <script src="billing.js"></script>

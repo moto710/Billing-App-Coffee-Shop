@@ -9,10 +9,10 @@
 
 ## Theme
 
-    https://www.flickr.com/photos/196646333@N07/52404844417/
+    https://flic.kr/p/2nQQwui
 
 ## Thành quả
 
-    Link git: https://github.com/moto710/caseStudyModule1
+    Link git: https://github.com/moto710/Billing-App-Coffee-Shop
     Link sản phẩm: 
 

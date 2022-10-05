@@ -28,7 +28,7 @@
     margin: 5px;
 }
 
-.left-item {
+.center {
     margin: 7px;
 }
 
@@ -57,4 +57,46 @@
     background-color: bisque;
     color: red;
     
+}
+
+.right-up{
+    font-size: 20px;
+}
+
+.btn{
+    width: 100%;
+    padding: 8px 16px;
+    cursor: pointer;
+    background-color: #a0dfe2;
+    color: #330000;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.money-tb{
+    width: 100%;
+    margin: 0px auto;
+}
+
+.money-th{
+    width: 500px;
+    padding: 5px;
+    margin: 0px auto;
+}
+
+.money-td{
+    text-align: center;
+    padding: 1px;
+    margin: 0px auto;
+    font-size: 18px;
+}
+
+.time{
+    font-size: 30px;
+    color: red;
+}
+
+.time:hover{
+    cursor: pointer;
+    color: aqua;
 }
