@@ -1,0 +1,60 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.overall {
+    margin: auto;
+    width: auto;
+    padding: 5px;
+}
+
+.left-size {
+    position: absolute;
+    left: 0px;
+    width: 50%;
+    padding: 5px;
+    margin: 5px;
+}
+
+.right-size {
+    position: absolute;
+    right: 0px;
+    width: 50%;
+    padding: 5px;
+    margin: 5px;
+}
+
+.left-item {
+    margin: 7px;
+}
+
+.container{
+    margin: 0px auto;
+}
+
+.big-table{
+    margin: 0px auto;
+}
+
+.table {
+    float: left;
+    background-color: #2196F3;
+    color: black;
+    width: 150px;
+    line-height: 150px;
+    text-align: center;
+    margin: 2px;
+    border-radius: 5px;
+    
+}
+
+.table:hover{
+    cursor: pointer;
+    background-color: bisque;
+    color: red;
+    
+}

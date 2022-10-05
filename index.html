@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Billing app</title>
+    <link rel="stylesheet" href="billing.css">
+</head>
+
+<body>
+    <div class="overall">
+        <div class="left-size">
+            <div class="left-item">
+                <h3>Tổng số bàn của quán:</h3>
+            </div>
+            <div class="left-item">
+                <hr>
+            </div>
+            <div class="left-item">
+                <table class="big-table">
+                    <tr>
+                        <td id="tb0" style="background-color: bisque" class="table tbSelected" onclick="exportTbNumber(0)">Bàn 1</td>
+                        <td id="tb1" class="table tbSelected" onclick="exportTbNumber(1)">Bàn 2</td>
+                        <td id="tb2" class="table tbSelected" onclick="exportTbNumber(2)">Bàn 3</td>
+                        <td id="tb3" class="table tbSelected" onclick="exportTbNumber(3)">Bàn 4</td>
+                    </tr>
+                    <tr>
+                        <td id="tb4" class="table tbSelected" onclick="exportTbNumber(4)">Bàn 5</td>
+                        <td id="tb5" class="table tbSelected" onclick="exportTbNumber(5)">Bàn 6</td>
+                        <td id="tb6" class="table tbSelected" onclick="exportTbNumber(6)">Bàn 7</td>
+                        <td id="tb7" class="table tbSelected" onclick="exportTbNumber(7)">Bàn 8</td>
+                    </tr>
+                    <tr>
+                        <td id="tb8" class="table tbSelected" onclick="exportTbNumber(8)">Bàn 9</td>
+                        <td id="tb9" class="table tbSelected" onclick="exportTbNumber(9)">Bàn 10</td>
+                        <td id="tb10" class="table tbSelected" onclick="exportTbNumber(10)">Bàn 11</td>
+                        <td id="tb11" class="table tbSelected" onclick="exportTbNumber(11)">Bàn 12</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="right-size">
+            <div class="left-item"><h3>Bàn số: <span id="tbNumber"></span></h3></div>
+            <div class="left-item"><hr></div>
+            <div class="left-item">
+                <table>
+                    <tr>
+                        <td>Tên món:</td>
+                        <td>
+                            <select id="drinks">
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Số lượng:</td>
+                        <td><input type="number" id="quantity"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><button onclick="order()">Choose</button></td>
+                    </tr>
+                </table>
+            </div>
+            <div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>STT</th>
+                            <th>Tên món</th>
+                            <th>Số lượng</th>
+                            <th>Đơn giá</th>
+                            <th>Thành tiền</th>
+                        </tr>
+                        <tbody id="IdOrderItem">
+
+                        </tbody>
+                    </thead>
+                    <tbody id="drinkingDetail">
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th colspan="2">Tổng số món</th>
+                            <th>
+                                <div id="sumDrinks">0</div>
+                            </th>
+                            <th>Tổng tiền</th>
+                            <th>
+                                <div id="amount">0</div>
+                            </th>
+                        </tr>
+                    </tfoot>
+                </table>
+                <button onclick="clearData()">Clear</button>
+            </div>
+        </div>
+        <script src="billing.js"></script>
+</body>
+
+</html>
