@@ -32,7 +32,7 @@ let listDrinks = [
         price: 20000
     },
 ]
-let orderList = [];
+var orderList = [];
 class OrderedDrink {
     constructor(id, price, quantity) {
         this.id = id;
@@ -40,11 +40,15 @@ class OrderedDrink {
         this.quantity = quantity;
     }
 }
+
 function exportDrink() {
-    let details = listDrinks.map(function (drink) {
-        return `<Option value="${drink.id}" >${drink.drinkName} - ${drink.price}</Option>`;
-    });
-    document.getElementById("drinks").innerHTML = `<option selected disabled value="none">Chọn món</option> + ${details.join("")}`;
+        console.log('vvv')
+        let details = listDrinks.map(function (drink) {
+            return `<Option value="${drink.id}" >${drink.drinkName} - ${drink.price}</Option>`;
+        });
+        document.getElementById("drinks").innerHTML = `<option selected disabled value="none">Chọn món</option> + ${details.join("")}`;
+     
+    
 }
 
 function order() {
@@ -77,6 +81,7 @@ function order() {
     })
     document.getElementById("amount").innerHTML = sumOrdered;
     document.getElementById("sumDrinks").innerHTML = total;
+    
 }
 function clearData() {
     orderList = [];
@@ -88,21 +93,25 @@ function clearData() {
     document.querySelector("#orderedDetails").innerHTML = "";
     document.getElementById("sumDrinks").innerHTML = "";
     document.querySelector("#amount").innerHTML = "";
+
+    
 }
 function deleteRow(orderedId) {
-    let indexDelete = orderList.findIndex((deleteDrink) =>
-        deleteDrink.id == orderedId
-    )
-    orderList.splice(indexDelete, 1);
-    let orderedDetailsElement = document.getElementById("orderedDetails");
-    orderedDetailsElement.innerHTML = ""
-    let sumOrdered = 0;
-    let total = 0;
-    orderList.map((orderedDrink) => {
-        let drinkSelected = listDrinks.find(function (drink) {
-            return drink.id == orderedDrink.id
-        });
-        let html = ` 
+    let confirm = window.confirm("Bạn muốn xóa dòng này???");
+    if (confirm) {
+        let indexDelete = orderList.findIndex((deleteDrink) =>
+            deleteDrink.id == orderedId
+        )
+        orderList.splice(indexDelete, 1);
+        let orderedDetailsElement = document.getElementById("orderedDetails");
+        orderedDetailsElement.innerHTML = ""
+        let sumOrdered = 0;
+        let total = 0;
+        orderList.map((orderedDrink) => {
+            let drinkSelected = listDrinks.find(function (drink) {
+                return drink.id == orderedDrink.id
+            });
+            let html = ` 
         <tr>
             <td class="money-td">${orderedDetailsElement.children.length + 1}</td>
             <td class="money-td">${drinkSelected.drinkName}</td>
@@ -112,12 +121,13 @@ function deleteRow(orderedId) {
             <td><span class="time" onclick="deleteRow('${orderedDrink.id}')">&times;</span></td>
         </tr>
         `;
-        orderedDetailsElement.innerHTML += html;
-        sumOrdered += orderedDrink.price * orderedDrink.quantity;
-        total += orderedDrink.quantity;
-    })
-    document.getElementById("amount").innerHTML = sumOrdered;
-    document.getElementById("sumDrinks").innerHTML = total;
+            orderedDetailsElement.innerHTML += html;
+            sumOrdered += orderedDrink.price * orderedDrink.quantity;
+            total += orderedDrink.quantity;
+        })
+        document.getElementById("amount").innerHTML = sumOrdered;
+        document.getElementById("sumDrinks").innerHTML = total;
+    }
 }
 
 exportDrink();
