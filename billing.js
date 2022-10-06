@@ -267,6 +267,10 @@ function orderedTable(id) {
 
 }
 
+function printBill(){
+    alert('Bạn chắc chán muốn in hóa đơn?');
+}
+
 function runAll() {
     exportDrink();
     exportTables();
