@@ -5,7 +5,6 @@
     1. HTML
     2. CSS
     3. JavaScript: Array, Function, Class, Object
-    4. DOM
 
 ## Theme
 

@@ -71,6 +71,7 @@
     color: #330000;
     font-size: 16px;
     box-sizing: border-box;
+    border-radius: 10px;
 }
 
 .money-tb{
@@ -99,4 +100,30 @@
 .time:hover{
     cursor: pointer;
     color: aqua;
+}
+
+.btn-left{
+    position: absolute;
+    left: 100px;
+    width: 25%;
+    padding: 10px;
+    margin: 15px;
+}
+
+.btn-right{
+    position: absolute;
+    right: 100px;
+    width: 25%;
+    padding: 10px;
+    margin: 15px;
+}
+
+.btn-right:hover{
+    background-color: crimson;
+    color: aliceblue;
+}
+
+.btn-left:hover{
+    background-color: crimson;
+    color: aliceblue;
 }
